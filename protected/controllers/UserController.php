@@ -4,12 +4,29 @@ class UserController extends Controller
 {
 	public function actionMessages()
 	{
-		$this->render('messages', array('is_visible' => isset(Yii::app()->session['user'])));
+        $data = CAuth::getUserAuthorizationInfo();
+
+        $data['dataProvider'] = new CActiveDataProvider('Message');
+        $this->render('messages', $data);
 	}
 
 	public function actionProfile()
 	{
-		$this->render('profile', array('is_visible' => isset(Yii::app()->session['user'])));
+        if (isset($_POST['User'])) {
+            $model = User::model()->findByPk(CAuth::getIdOfCurrentUser());
+            $model->attributes = $_POST['User'];
+
+            if ($model->save())
+                $this->redirect('index.php?r=user/profile');
+        }
+
+        $data = CAuth::getUserAuthorizationInfo();
+
+        if ($data['isUserAuthorized']) {
+            $data['model'] = User::model()->findByPk(CAuth::getIdOfCurrentUser());
+        }
+
+		$this->render('profile', $data);
 	}
 
 	// Uncomment the following methods and override them if needed

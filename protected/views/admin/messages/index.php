@@ -1,18 +1,18 @@
 <?php
-/* @var $this UsersController */
+/* @var $this MessagesController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Users',
+	'Messages',
 );
 
 $this->menu=array(
-	array('label'=>'Create Users', 'url'=>array('create')),
-	array('label'=>'Manage Users', 'url'=>array('admin')),
+	array('label'=>'Create Message', 'url'=>array('create')),
+	array('label'=>'Manage Message', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Users</h1>
+<h1>Messages</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

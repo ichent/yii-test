@@ -1,6 +1,6 @@
 <?php
-/* @var $this UsersController */
-/* @var $model Users */
+/* @var $this MessagesController */
+/* @var $model Message */
 /* @var $form CActiveForm */
 ?>
 
@@ -17,18 +17,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'text'); ?>
+		<?php echo $form->textField($model,'text',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'pass'); ?>
-		<?php echo $form->passwordField($model,'pass',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'user_id'); ?>
+		<?php echo $form->textField($model,'user_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'is_admin'); ?>
-		<?php echo $form->textField($model,'is_admin'); ?>
+		<?php echo $form->label($model,'date_create'); ?>
+		<?php echo $form->textField($model,'date_create'); ?>
 	</div>
 
 	<div class="row buttons">

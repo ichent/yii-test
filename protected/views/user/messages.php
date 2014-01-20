@@ -6,8 +6,12 @@ $this->breadcrumbs=array(
 	'Messages',
 );
 ?>
-<? if ($is_visible) { ?>
-    Messages
+
+<? if ($isUserAuthorized) { ?>
+    <?php $this->widget('zii.widgets.CListView', array(
+        'dataProvider'=>$dataProvider,
+        'itemView'=>'_message',
+    )); ?>
 <? } else { ?>
     You need to login
 <? } ?>

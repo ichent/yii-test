@@ -6,8 +6,9 @@ $this->breadcrumbs=array(
 	'Profile',
 );
 ?>
-<? if ($is_visible) { ?>
-    Profile
+
+<? if ($isUserAuthorized) { ?>
+    <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 <? } else { ?>
     You need to login
 <? } ?>

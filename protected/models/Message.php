@@ -1,22 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "users".
+ * This is the model class for table "messages".
  *
- * The followings are the available columns in table 'users':
+ * The followings are the available columns in table 'messages':
  * @property integer $id
- * @property string $name
- * @property string $pass
- * @property integer $is_admin
+ * @property string $text
+ * @property integer $user_id
+ * @property string $date_create
  */
-class User extends CActiveRecord
+class Message extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'users';
+		return 'messages';
 	}
 
 	/**
@@ -27,11 +27,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('is_admin', 'numerical', 'integerOnly'=>true),
-			array('name, pass', 'length', 'max'=>10),
+			array('user_id, date_create', 'required'),
+			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('text', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, pass, is_admin', 'safe', 'on'=>'search'),
+			array('id, text, user_id, date_create', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,9 +54,9 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'pass' => 'Pass',
-			'is_admin' => 'Is Admin',
+			'text' => 'Text',
+			'user_id' => 'User',
+			'date_create' => 'Date Create',
 		);
 	}
 
@@ -78,9 +79,9 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('pass',$this->pass,true);
-		$criteria->compare('is_admin',$this->is_admin);
+		$criteria->compare('text',$this->text,true);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('date_create',$this->date_create,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -91,7 +92,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Users the static model class
+	 * @return Message the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

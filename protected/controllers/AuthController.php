@@ -19,7 +19,8 @@ class AuthController extends Controller
             if ($user && count($user) == 1) {
                 $session_user = array(
                     'name' => $user->name,
-                    'is_admin' => $user->is_admin
+                    'is_admin' => $user->is_admin,
+                    'id' => $user->id
                 );
 
                 // Safe to session
