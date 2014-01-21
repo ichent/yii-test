@@ -36,6 +36,7 @@ class UsersController extends Controller
 
 		if (isset($_POST['User'])) {
 			$model->attributes = $_POST['User'];
+            $model->setAttribute('date_create', date('Y-m-d H:i:s'));
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}

@@ -17,8 +17,34 @@ class MessagesController extends Controller {
      * Метод по умолчанию, также отображает список сообщений.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Message');
-        $this->render('index', array('dataProvider' => $dataProvider));
+        // Поиск с учетом фильтра, если задан
+        $criteria = array();
+        $selectedUserId = '';
+        if (isset($_POST['User']) && isset($_POST['User']['id'])) {
+            $criteria = array('criteria' => array(
+                'condition' => 'user_id=' . intval($_POST['User']['id'])
+            ));
+
+            $selectedUserId = intval($_POST['User']['id']);
+        }
+
+        $dataProvider = new CActiveDataProvider('Message', $criteria);
+
+        // Формирует данные юзеров для фильтра
+        $listUsers = array();
+        $users = User::model()->findAll();
+
+        if ($users && count($users) > 0) {
+            foreach ($users as $user) {
+                $listUsers[$user->id] = $user->name;
+            }
+        }
+
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+            'selectedUserId' => $selectedUserId,
+            'listUsers' => $listUsers
+        ));
     }
 
     /**
@@ -43,6 +69,7 @@ class MessagesController extends Controller {
 
     /**
      * Метод детальной сообщения.
+     * @param integer $id ID сообщения
      */
     public function actionView($id) {
         $this->render('view', array(
@@ -52,7 +79,7 @@ class MessagesController extends Controller {
 
     /**
      * Метод редактирования сообщения.
-     * @param integer $id the ID of the model to be updated
+     * @param integer $id ID сообщения
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
@@ -69,9 +96,8 @@ class MessagesController extends Controller {
     }
 
     /**
-     * Deletes a particular model.
-     * If deletion is successful, the browser will be redirected to the 'admin' page.
-     * @param integer $id the ID of the model to be deleted
+     * Метод удаления сообщения.
+     * @param integer $id the ID сообщения
      */
     public function actionDelete($id) {
         $this->loadModel($id)->delete();
@@ -81,10 +107,9 @@ class MessagesController extends Controller {
 
 
     /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer $id the ID of the model to be loaded
-     * @return Users the loaded model
+     * Возвращает сообщение по его ID.
+     * @param integer $id ID сообщения
+     * @return Message
      * @throws CHttpException
      */
     public function loadModel($id) {

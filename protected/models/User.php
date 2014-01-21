@@ -27,12 +27,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('name, pass', 'required'),
+            array('name, pass, date_create', 'required'),
 			array('is_admin', 'numerical', 'integerOnly'=>true),
 			array('name, pass', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, pass, is_admin', 'safe', 'on'=>'search'),
+			array('id, name, pass, is_admin, date_create', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +57,7 @@ class User extends CActiveRecord
 			'name' => 'Имя',
 			'pass' => 'Пароль',
 			'is_admin' => 'Является администратором',
+            'date_create' => 'Дата создания'
 		);
 	}
 
@@ -82,6 +83,7 @@ class User extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('pass',$this->pass,true);
 		$criteria->compare('is_admin',$this->is_admin);
+        $criteria->compare('date_create',$this->date_create, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

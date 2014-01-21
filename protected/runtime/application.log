@@ -1076,3 +1076,129 @@ Stack trace:
 REQUEST_URI=/messages/index.php?r=admin/messages/view&id=1
 HTTP_REFERER=http://www.yii-test.local/messages/index.php?r=admin/messages
 ---
+2014/01/21 22:37:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У Вас нет прав для просмотра этого раздела.' in /var/www/www.yii-test.local/messages/protected/controllers/admin/UsersController.php:13
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(306): UsersController->beforeAction(Object(CInlineAction))
+#1 /var/www/www.yii-test.local/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/www.yii-test.local/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/users')
+#5 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/www.yii-test.local/messages/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/messages/index.php?r=admin/users
+---
+2014/01/21 23:11:48 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У Вас нет прав для просмотра этого раздела.' in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:9
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(306): MessagesController->beforeAction(Object(CInlineAction))
+#1 /var/www/www.yii-test.local/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/www.yii-test.local/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/messages')
+#5 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/www.yii-test.local/messages/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/messages/index.php?r=admin/messages
+HTTP_REFERER=http://www.yii-test.local/messages/index.php?r=admin/users
+---
+2014/01/21 23:11:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У Вас нет прав для просмотра этого раздела.' in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:9
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(306): MessagesController->beforeAction(Object(CInlineAction))
+#1 /var/www/www.yii-test.local/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/www.yii-test.local/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): CController->run('')
+#4 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/messages')
+#5 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/www.yii-test.local/messages/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/messages/index.php?r=admin/messages
+HTTP_REFERER=http://www.yii-test.local/messages/index.php?r=admin/users
+---
+2014/01/21 23:23:50 [error] [php] Undefined index: User (/var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:21)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#2 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (21)
+in /var/www/www.yii-test.local/messages/index.php (13)
+2014/01/21 23:25:00 [error] [php] Undefined index: User (/var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:21)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#2 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (21)
+in /var/www/www.yii-test.local/messages/index.php (13)
+2014/01/21 23:25:08 [error] [php] Undefined index: Message (/var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:38)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#2 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages/create
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (38)
+in /var/www/www.yii-test.local/messages/index.php (13)
+2014/01/21 23:27:31 [error] [php] Undefined index: User (/var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:21)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#2 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (21)
+in /var/www/www.yii-test.local/messages/index.php (13)
+2014/01/21 23:28:07 [error] [php] Undefined index: User (/var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php:21)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#2 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#3 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (21)
+in /var/www/www.yii-test.local/messages/index.php (13)
+2014/01/21 23:36:37 [error] [exception.CException] exception 'CException' with message 'Property "CActiveDataProvider.condition" is not defined.' in /var/www/www.yii-test.local/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CActiveDataProvider.php(96): CComponent->__set('condition', 'user_id=1')
+#1 /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php(29): CActiveDataProvider->__construct('Message', Array)
+#2 /var/www/www.yii-test.local/framework/web/actions/CInlineAction.php(49): MessagesController->actionIndex()
+#3 /var/www/www.yii-test.local/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/www.yii-test.local/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/www.yii-test.local/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/messages')
+#8 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/www.yii-test.local/messages/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/messages/index.php?r=admin/messages
+HTTP_REFERER=http://www.yii-test.local/messages/index.php?r=admin/messages
+---
+2014/01/21 23:49:53 [error] [php] Undefined variable: listUsers (/var/www/www.yii-test.local/messages/protected/views/admin/messages/index.php:25)
+Stack trace:
+#0 /var/www/www.yii-test.local/framework/web/CController.php(869): MessagesController->renderFile()
+#1 /var/www/www.yii-test.local/framework/web/CController.php(782): MessagesController->renderPartial()
+#2 /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php(46): MessagesController->render()
+#3 /var/www/www.yii-test.local/framework/web/actions/CInlineAction.php(49): MessagesController->actionIndex()
+#4 /var/www/www.yii-test.local/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/www.yii-test.local/framework/web/CController.php(286): MessagesController->runAction()
+#6 /var/www/www.yii-test.local/framework/web/CController.php(265): MessagesController->runActionWithFilters()
+#7 /var/www/www.yii-test.local/framework/web/CWebApplication.php(282): MessagesController->run()
+#8 /var/www/www.yii-test.local/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/www.yii-test.local/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/www.yii-test.local/messages/index.php(13): CWebApplication->run()
+REQUEST_URI=/messages/index.php?r=admin/messages
+in /var/www/www.yii-test.local/messages/protected/views/admin/messages/index.php (25)
+in /var/www/www.yii-test.local/messages/protected/controllers/admin/MessagesController.php (46)
+in /var/www/www.yii-test.local/messages/index.php (13)

@@ -24,5 +24,6 @@
 		'name',
 		'pass',
 		'is_admin',
+        'date_create'
 	),
 )); ?>
