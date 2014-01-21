@@ -27,7 +27,7 @@ class Message extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, date_create', 'required'),
+			array('user_id, date_create, text', 'required'),
 			array('user_id', 'numerical', 'integerOnly'=>true),
 			array('text', 'length', 'max'=>50),
 			// The following rule is used by search().
@@ -54,7 +54,7 @@ class Message extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'text' => 'Text',
+			'text' => 'Текст сообщения',
 			'user_id' => 'User',
 			'date_create' => 'Date Create',
 		);

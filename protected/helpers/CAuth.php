@@ -1,9 +1,11 @@
 <?php
 /**
- * Вспомогательный класс для работы
+ * Вспомогательный класс для работы с
+ * авторизационными данными пользователя
  */
 
-class CAuth {
+class CAuth
+{
 
     public static function isCurrentUserAuthorized() {
         return isset(Yii::app()->session['user']);
@@ -23,7 +25,8 @@ class CAuth {
 
     public static function getUserAuthorizationInfo() {
         return array(
-            'isUserAuthorized' => CAuth::isCurrentUserAuthorized()
+            'isUserAuthorized' => self::isCurrentUserAuthorized(),
+            'isUserAdmin' => self::isCurrentUserAdmin()
         );
     }
 } 

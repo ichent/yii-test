@@ -4,6 +4,6 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Default page</h1>
+<h1>Главная страница</h1>
 
-<p>This is default page.</p>
+<p>Это главная страница приложения.</p>

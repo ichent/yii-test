@@ -2,16 +2,17 @@
 /* @var $this UserController */
 
 $this->breadcrumbs=array(
-	'User'=>array('/user'),
-	'Messages',
+	'Пользователь'=>array('/user/profile'),
+	'Сообщения',
 );
 ?>
 
 <? if ($isUserAuthorized) { ?>
-    <?php $this->widget('zii.widgets.CListView', array(
+    <? $this->renderPartial('_form_message', array('model'=>$model)); ?>
+    <? $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,
         'itemView'=>'_message',
     )); ?>
 <? } else { ?>
-    You need to login
+    Необходимо авторизоваться
 <? } ?>

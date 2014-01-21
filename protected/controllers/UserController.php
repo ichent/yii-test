@@ -2,17 +2,47 @@
 
 class UserController extends Controller
 {
-	public function actionMessages()
+    /**
+     * Метод показа сообщений пользователя
+     * и добавление нового сообщения
+     */
+    public function actionMessages()
 	{
         $data = CAuth::getUserAuthorizationInfo();
 
-        $data['dataProvider'] = new CActiveDataProvider('Message');
+        // Добавляет новое сообщение, если пришел запрос
+        if ($data['isUserAuthorized'] && isset($_POST['Message'])) {
+            $model = new Message();
+            $model->attributes = $_POST['Message'];
+            $model->setAttribute('user_id', CAuth::getIdOfCurrentUser());
+            $model->setAttribute('date_create', date('Y-m-d H:i:s'));
+
+            if ($model->save())
+                $this->redirect('index.php?r=user/messages');
+        }
+
+        // Вывод сообщений текущего пользователя
+        $data['dataProvider'] = new CActiveDataProvider('Message', array(
+            'criteria' => array(
+                'condition' => 'user_id=' . CAuth::getIdOfCurrentUser(),
+                'order' => 'date_create DESC'
+            )
+        ));
+
+        $data['model'] = new Message();
+
         $this->render('messages', $data);
 	}
 
-	public function actionProfile()
+    /**
+     * Метод показа профиля пользователя
+     */
+    public function actionProfile()
 	{
-        if (isset($_POST['User'])) {
+        $data = CAuth::getUserAuthorizationInfo();
+
+        // Обновляет данные пользователя, если пришел запрос
+        if ($data['isUserAuthorized'] && isset($_POST['User'])) {
             $model = User::model()->findByPk(CAuth::getIdOfCurrentUser());
             $model->attributes = $_POST['User'];
 
@@ -20,39 +50,10 @@ class UserController extends Controller
                 $this->redirect('index.php?r=user/profile');
         }
 
-        $data = CAuth::getUserAuthorizationInfo();
-
         if ($data['isUserAuthorized']) {
             $data['model'] = User::model()->findByPk(CAuth::getIdOfCurrentUser());
         }
 
 		$this->render('profile', $data);
 	}
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
 }

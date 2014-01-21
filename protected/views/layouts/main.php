@@ -29,11 +29,11 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-                array('label'=>'Default page', 'url'=>array('/')),
-				array('label'=>'Profile', 'url'=>array('/user/profile')),
-				array('label'=>'Messages', 'url'=>array('/user/messages')),
-				array('label'=>'Login', 'url'=>array('/auth/login'), 'visible'=>!isset(Yii::app()->session['user'])),
-				array('label'=>'Logout ('.Yii::app()->session['user']['name'].')', 'url'=>array('/auth/logout'), 'visible'=>isset(Yii::app()->session['user']))
+                array('label'=>'Главная страница', 'url'=>array('/')),
+				array('label'=>'Профиль', 'url'=>array('/user/profile')),
+				array('label'=>'Сообщения', 'url'=>array('/user/messages')),
+				array('label'=>'Вход', 'url'=>array('/auth/login'), 'visible'=>!isset(Yii::app()->session['user'])),
+				array('label'=>'Выход ('.Yii::app()->session['user']['name'].')', 'url'=>array('/auth/logout'), 'visible'=>isset(Yii::app()->session['user']))
 			),
 		)); ?>
 	</div><!-- mainmenu -->
