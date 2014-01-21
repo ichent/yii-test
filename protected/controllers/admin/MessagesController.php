@@ -22,14 +22,16 @@ class MessagesController extends Controller {
     }
 
     /**
-     * Отображает форму для добавления Creates a new model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Метод создания нового сообщения.
      */
     public function actionCreate() {
-        $model = new User;
+        $model = new Message;
 
-        if (isset($_POST['User'])) {
-            $model->attributes = $_POST['User'];
+        if (isset($_POST['Message'])) {
+            $model->attributes = $_POST['Message'];
+            $model->setAttribute('user_id', CAuth::getIdOfCurrentUser());
+            $model->setAttribute('date_create', date('Y-m-d H:i:s'));
+
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
@@ -39,20 +41,44 @@ class MessagesController extends Controller {
         ));
     }
 
-	public function actionAdd()
-	{
-		$this->render('add');
-	}
+    /**
+     * Метод детальной сообщения.
+     */
+    public function actionView($id) {
+        $this->render('view', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
 
-	public function actionEdit()
-	{
-		$this->render('edit');
-	}
+    /**
+     * Метод редактирования сообщения.
+     * @param integer $id the ID of the model to be updated
+     */
+    public function actionUpdate($id) {
+        $model = $this->loadModel($id);
 
-	public function actionSave()
-	{
-		$this->render('save');
-	}
+        if (isset($_POST['Message'])) {
+            $model->attributes = $_POST['Message'];
+            if ($model->save())
+                $this->redirect(array('view','id' => $model->id));
+        }
+
+        $this->render('update', array(
+            'model' => $model,
+        ));
+    }
+
+    /**
+     * Deletes a particular model.
+     * If deletion is successful, the browser will be redirected to the 'admin' page.
+     * @param integer $id the ID of the model to be deleted
+     */
+    public function actionDelete($id) {
+        $this->loadModel($id)->delete();
+
+        $this->redirect('index.php?r=admin/messages');
+    }
+
 
     /**
      * Returns the data model based on the primary key given in the GET variable.

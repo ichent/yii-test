@@ -55,8 +55,8 @@ class Message extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'text' => 'Текст сообщения',
-			'user_id' => 'User',
-			'date_create' => 'Date Create',
+			'user_id' => 'Пользователь',
+			'date_create' => 'Дата создания',
 		);
 	}
 

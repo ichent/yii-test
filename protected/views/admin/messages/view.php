@@ -1,22 +1,21 @@
-<?php
-/* @var $this MessagesController */
-/* @var $model Message */
+<?
+    /* @var $this MessagesController */
+    /* @var $model Message */
 
-$this->breadcrumbs=array(
-	'Messages'=>array('index'),
-	$model->id,
-);
+    $this->breadcrumbs = array(
+        'Сообщения' => array('index'),
+        $model->id,
+    );
 
-$this->menu=array(
-	array('label'=>'List Message', 'url'=>array('index')),
-	array('label'=>'Create Message', 'url'=>array('create')),
-	array('label'=>'Update Message', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Message', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Message', 'url'=>array('admin')),
-);
+    $this->menu = array(
+        array('label' => 'Список сообщений', 'url' => array('index')),
+        array('label' => 'Добавить сообщение', 'url' => array('create')),
+        array('label' => 'Редактировать сообщение', 'url' => array('update', 'id'=>$model->id)),
+        array('label' => 'Удалить сообщение', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Вы действительно хотите удалить сообщение?')),
+    );
 ?>
 
-<h1>View Message #<?php echo $model->id; ?></h1>
+<h1>Детальная сообщения #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

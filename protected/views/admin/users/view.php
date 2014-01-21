@@ -11,7 +11,7 @@
         array('label' => 'Список пользователей', 'url' => array('index')),
         array('label' => 'Добавить пользователя', 'url' => array('create')),
         array('label' => 'Редактировать пользователя', 'url' => array('update', 'id'=>$model->id)),
-        array('label' => 'Удалить пользователя', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+        array('label' => 'Удалить пользователя', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Вы действительно хотите удалить пользователя?')),
     );
 ?>
 

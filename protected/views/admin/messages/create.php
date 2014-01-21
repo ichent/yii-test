@@ -1,18 +1,17 @@
-<?php
-/* @var $this MessagesController */
-/* @var $model Message */
+<?
+    /* @var $this MessagesController */
+    /* @var $model Message */
 
-$this->breadcrumbs=array(
-	'Messages'=>array('index'),
-	'Create',
-);
+    $this->breadcrumbs = array(
+        'Сообщения' => array('index'),
+        'Добавление',
+    );
 
-$this->menu=array(
-	array('label'=>'List Message', 'url'=>array('index')),
-	array('label'=>'Manage Message', 'url'=>array('admin')),
-);
+    $this->menu = array(
+        array('label' => 'Список сообщений', 'url' => array('index')),
+    );
 ?>
 
-<h1>Create Message</h1>
+<h1>Создание сообщения</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<? $this->renderPartial('_form', array('model' => $model)); ?>
