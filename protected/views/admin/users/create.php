@@ -1,18 +1,17 @@
 <?php
-/* @var $this UsersController */
-/* @var $model Users */
+    /* @var $this UsersController */
+    /* @var $model Users */
 
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Create',
-);
+    $this->breadcrumbs = array(
+        'Пользователи' => array('index'),
+        'Добавление',
+    );
 
-$this->menu=array(
-	array('label'=>'List Users', 'url'=>array('index')),
-	array('label'=>'Manage Users', 'url'=>array('admin')),
-);
+    $this->menu = array(
+        array('label'=>'Список пользователей', 'url' => array('index')),
+    );
 ?>
 
-<h1>Create Users</h1>
+<h1>Создание пользователя</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

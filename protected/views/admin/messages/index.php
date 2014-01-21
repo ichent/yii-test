@@ -1,20 +1,21 @@
-<?php
-/* @var $this MessagesController */
-/* @var $dataProvider CActiveDataProvider */
+<?
+    /* @var $this MessagesController */
+    /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Messages',
-);
+    $this->breadcrumbs = array(
+        'Сообщения',
+    );
 
-$this->menu=array(
-	array('label'=>'Create Message', 'url'=>array('create')),
-	array('label'=>'Manage Message', 'url'=>array('admin')),
-);
+    $this->menu = array(
+        array('label' => 'Добавить сообщение', 'url' => array('create'))
+    );
 ?>
 
-<h1>Messages</h1>
+<h1>Сообщения</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?
+    $this->widget('zii.widgets.CListView', array(
+	    'dataProvider' => $dataProvider,
+	    'itemView' => '_view',
+    ));
+?>

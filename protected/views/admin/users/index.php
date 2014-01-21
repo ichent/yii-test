@@ -1,20 +1,19 @@
-<?php
-/* @var $this UsersController */
-/* @var $dataProvider CActiveDataProvider */
+<?
+    /* @var $this UsersController */
+    /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Users',
-);
+    $this->breadcrumbs = array('Пользователи');
 
-$this->menu=array(
-	array('label'=>'Create Users', 'url'=>array('create')),
-	array('label'=>'Manage Users', 'url'=>array('admin')),
-);
+    $this->menu = array(
+        array('label' => 'Добавить пользователя', 'url' => array('create'))
+    );
 ?>
 
-<h1>Users</h1>
+<h1>Пользователи</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?
+    $this->widget('zii.widgets.CListView', array(
+	    'dataProvider' => $dataProvider,
+	    'itemView' => '_view',
+    ));
+?>

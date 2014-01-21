@@ -1,22 +1,21 @@
-<?php
-/* @var $this UsersController */
-/* @var $model Users */
+<?
+    /* @var $this UsersController */
+    /* @var $model Users */
 
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->name,
-);
+    $this->breadcrumbs = array(
+        'Пользователи' => array('index'),
+        $model->name,
+    );
 
-$this->menu=array(
-	array('label'=>'List Users', 'url'=>array('index')),
-	array('label'=>'Create Users', 'url'=>array('create')),
-	array('label'=>'Update Users', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Users', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Users', 'url'=>array('admin')),
-);
+    $this->menu=array(
+        array('label' => 'Список пользователей', 'url' => array('index')),
+        array('label' => 'Добавить пользователя', 'url' => array('create')),
+        array('label' => 'Редактировать пользователя', 'url' => array('update', 'id'=>$model->id)),
+        array('label' => 'Удалить пользователя', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+    );
 ?>
 
-<h1>View Users #<?php echo $model->id; ?></h1>
+<h1>Детальная пользователя #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

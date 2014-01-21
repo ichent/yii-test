@@ -16,7 +16,7 @@
 )); ?>
 
     <p class="note">Поля, помеченные <span class="required">*</span>, обязательны для заполнения.</p>
-    
+
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">

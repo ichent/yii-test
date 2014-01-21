@@ -54,9 +54,9 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'pass' => 'Pass',
-			'is_admin' => 'Is Admin',
+			'name' => 'Имя',
+			'pass' => 'Пароль',
+			'is_admin' => 'Является администратором',
 		);
 	}
 
